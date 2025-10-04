@@ -20,3 +20,4 @@ output/*.json
 # OS
 .DS_Store
 Thumbs.db
+/src/test_case_generator.egg-info/
