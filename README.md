@@ -81,6 +81,8 @@ python web_server.py
 ```
 Then open [http://localhost:8000](http://localhost:8000) in your browser.
 
+## 🛠️ Usage
+### Web Interface
 - Paste your user story and acceptance criteria
 - Click "Generate Test Cases" (spinner shows progress)
 - Download the generated CSV file
