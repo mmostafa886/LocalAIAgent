@@ -1,0 +1,58 @@
+[
+  {
+    "Test Case ID": "TC001",
+    "Test Case Title": "Valid Email and Password Login",
+    "Steps": "1. Navigate to the login page\n2. Enter a valid email address\n3. Enter a valid password\n4. Click the Login button",
+    "Expected Result": "The user is redirected to their account dashboard",
+    "Linked Acceptance Criterion": "AC1"
+  },
+  {
+    "Test Case ID": "TC002",
+    "Test Case Title": "Invalid Email and Password Login",
+    "Steps": "1. Navigate to the login page\n2. Enter an invalid email address\n3. Enter an invalid password\n4. Click the Login button",
+    "Expected Result": "An error message is displayed, and the user remains on the login page",
+    "Linked Acceptance Criterion": "AC2"
+  },
+  {
+    "Test Case ID": "TC003",
+    "Test Case Title": "Empty Email Field Login",
+    "Steps": "1. Navigate to the login page\n2. Leave the email field empty\n3. Enter a valid password\n4. Click the Login button",
+    "Expected Result": "An error message is displayed, and the user remains on the login page",
+    "Linked Acceptance Criterion": "AC2"
+  },
+  {
+    "Test Case ID": "TC004",
+    "Test Case Title": "Empty Password Field Login",
+    "Steps": "1. Navigate to the login page\n2. Enter a valid email address\n3. Leave the password field empty\n4. Click the Login button",
+    "Expected Result": "An error message is displayed, and the user remains on the login page",
+    "Linked Acceptance Criterion": "AC2"
+  },
+  {
+    "Test Case ID": "TC005",
+    "Test Case Title": "Invalid Email Format Login",
+    "Steps": "1. Navigate to the login page\n2. Enter an email address with an invalid format\n3. Enter a valid password\n4. Click the Login button",
+    "Expected Result": "An error message is displayed, and the user remains on the login page",
+    "Linked Acceptance Criterion": "AC2"
+  },
+  {
+    "Test Case ID": "TC006",
+    "Test Case Title": "Password Masking",
+    "Steps": "1. Navigate to the login page\n2. Enter a valid email address\n3. Type a password in the password field\n4. Observe the password characters",
+    "Expected Result": "The password characters are masked",
+    "Linked Acceptance Criterion": "AC4"
+  },
+  {
+    "Test Case ID": "TC007",
+    "Test Case Title": "Login Button Disabled",
+    "Steps": "1. Navigate to the login page\n2. Leave both the email and password fields empty\n3. Observe the Login button",
+    "Expected Result": "The Login button is disabled",
+    "Linked Acceptance Criterion": "AC3"
+  },
+  {
+    "Test Case ID": "TC008",
+    "Test Case Title": "Login Form Fields",
+    "Steps": "1. Navigate to the login page\n2. Observe the login form fields",
+    "Expected Result": "The login form contains fields for 'Email' and 'Password', and a 'Login' button",
+    "Linked Acceptance Criterion": "AC3"
+  }
+]

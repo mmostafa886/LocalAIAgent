@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Project specific
+output/*.csv
+output/*.json
+!output/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db

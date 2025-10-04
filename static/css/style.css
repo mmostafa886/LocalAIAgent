@@ -1,0 +1,321 @@
+/**
+ * Test Case Generator - Stylesheet
+ *
+ * Clean, organized CSS with clear sections for easy maintenance
+ */
+
+/* ============================================================================
+   RESET & BASE STYLES
+   ============================================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                 Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ============================================================================
+   LAYOUT
+   ============================================================================ */
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: calc(100vh - 40px);
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 1024px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 300px;
+    }
+}
+
+/* ============================================================================
+   PANELS
+   ============================================================================ */
+
+.form-panel,
+.log-panel {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.panel-header .subtitle {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.panel-content {
+    padding: 30px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* ============================================================================
+   FORM ELEMENTS
+   ============================================================================ */
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+textarea,
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    resize: vertical;
+}
+
+textarea:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* ============================================================================
+   CHECKBOX
+   ============================================================================ */
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* ============================================================================
+   BUTTONS
+   ============================================================================ */
+
+.btn-generate {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-generate:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-generate:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.clear-logs {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    float: right;
+    transition: background 0.3s;
+}
+
+.clear-logs:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================================================
+   RESULT DISPLAY
+   ============================================================================ */
+
+.result {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 8px;
+    display: none;
+}
+
+.result.success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.result.error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.result-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.result-message {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.file-path {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-top: 8px;
+    font-family: monospace;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+/* ============================================================================
+   HINTS & TIPS
+   ============================================================================ */
+
+.hint {
+    font-size: 12px;
+    color: #999;
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+.tip {
+    background: #fff9e6;
+    border-left: 4px solid #ffc107;
+    padding: 10px 14px;
+    margin-top: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #856404;
+}
+
+/* ============================================================================
+   LOG PANEL
+   ============================================================================ */
+
+.log-content {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 15px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.log-entry {
+    margin-bottom: 8px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.log-timestamp {
+    color: #858585;
+    margin-right: 8px;
+}
+
+.log-level {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.log-level.info {
+    background: #0e639c;
+    color: white;
+}
+
+.log-level.success {
+    background: #107c10;
+    color: white;
+}
+
+.log-level.warning {
+    background: #f59e0b;
+    color: white;
+}
+
+.log-level.error {
+    background: #dc2626;
+    color: white;
+}
+
+.log-message {
+    color: #d4d4d4;
+}
+
+.log-empty {
+    color: #858585;
+    text-align: center;
+    padding: 40px 20px;
+    font-style: italic;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Case Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="main-container">
+    <!-- Left Panel: Input Form -->
+    <div class="form-panel">
+        <div class="panel-header">
+            <h1>🤖 Test Case Generator</h1>
+            <p class="subtitle">Paste your user story and acceptance criteria to generate comprehensive test cases</p>
+        </div>
+
+        <div class="panel-content">
+            <form id="testCaseForm">
+                <div class="form-group">
+                    <label for="combinedInput">User Story & Acceptance Criteria *</label>
+                    <textarea
+                            id="combinedInput"
+                            rows="15"
+                            placeholder="Paste your user story and acceptance criteria here:
+
+User Story:
+As a user, I want to log in so that I can access my account
+
+Acceptance Criteria:
+- User can log in with valid credentials
+- User sees error with invalid password
+- User account locks after 5 failed attempts
+- User can reset password via email
+
+Supported formats:
+- Bullets: -, *, •
+- Numbers: 1., 2., 3.
+- Labels: AC1:, AC2:
+- Plain text (one per line)
+
+Just paste and the system will auto-parse!"
+                    ></textarea>
+                    <div class="tip">
+                        💡 <strong>Copy directly from Jira, Confluence, or any document!</strong>
+                        The system automatically detects and separates user story from acceptance criteria.
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="filename">Output Filename *</label>
+                    <input
+                            type="text"
+                            id="filename"
+                            value="test_cases"
+                            placeholder="test_cases"
+                    >
+                    <div class="hint">CSV extension will be added automatically</div>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input
+                                type="checkbox"
+                                id="appendDatetime"
+                                checked
+                        >
+                        <label for="appendDatetime">Append date and time to filename</label>
+                    </div>
+                    <div class="hint">Example: test_cases_20250104_143022.csv</div>
+                </div>
+
+                <button type="submit" class="btn-generate" id="generateBtn">
+                    <span id="btnText">🚀 Generate Test Cases</span>
+                    <span id="btnSpinner" style="display:none;">
+                        <svg width="20" height="20" viewBox="0 0 50 50">
+                            <circle cx="25" cy="25" r="20" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4" transform="rotate(-90 25 25)">
+                                <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.8s" repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                    </span>
+                </button>
+
+                <div class="result" id="result"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Right Panel: Live Logs -->
+    <div class="log-panel">
+        <div class="panel-header">
+            <h1>📋 Generation Logs</h1>
+            <p class="subtitle">Real-time progress updates</p>
+            <button class="clear-logs" onclick="clearLogs()">Clear</button>
+        </div>
+
+        <div class="log-content" id="logContent">
+            <div class="log-empty">Waiting for generation to start...</div>
+        </div>
+    </div>
+</div>
+
+<!-- Configuration passed from backend -->
+<script>
+    window.APP_CONFIG = {
+        modelName: "{{ model_name }}"
+    };
+</script>
+
+<!-- Load application JavaScript -->
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

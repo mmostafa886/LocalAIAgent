@@ -1,0 +1,17 @@
+# Requirements for Local AI Test Case Generator
+# Install with: pip install -r requirements.txt
+
+# Core dependencies
+ollama>=0.1.0
+
+# Web interface
+flask>=2.3.0
+
+# Optional but recommended for better functionality
+langchain>=0.1.0
+langchain-community>=0.0.1
+
+# For development and testing (optional)
+pytest>=7.0.0
+black>=23.0.0
+mypy>=1.0.0

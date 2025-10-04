@@ -1,0 +1,9 @@
+{
+  "user_story": "As a user of an e-commerce website, I want to be able to log in to my account so that I can access my order history and saved preferences.",
+  "acceptance_criteria": [
+    "A user with valid credentials (email and password) should be able to log in successfully",
+    "A user with invalid credentials should see an error message and remain on the login page",
+    "The login form must have fields for 'Email' and 'Password', and a 'Login' button",
+    "The password field should mask the characters as they are typed"
+  ]
+}
