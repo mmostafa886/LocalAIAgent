@@ -5,6 +5,11 @@ A Python-based tool for generating comprehensive test cases from user stories an
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![Flask](https://img.shields.io/badge/Flask-3.0+-green.svg)
 
+## Runtime / LLM / Scripting
+- Runtime: Ollama
+- LLM: llama3.2-vision:11b
+- Scripting: Python
+
 ## Features
 - 📝 Generate test cases from user stories and acceptance criteria
 - 🧩 Supports edge cases and negative tests

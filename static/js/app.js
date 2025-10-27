@@ -290,10 +290,16 @@ document.getElementById('testCaseForm').addEventListener('submit', async (e) => 
     addLog(`User story parsed successfully`, 'success');
     addLog(`Found ${acceptanceCriteria.length} acceptance criteria`, 'success');
 
-    // Disable generate button
+    // Disable generate button and show spinner
     const generateBtn = document.getElementById('generateBtn');
     generateBtn.disabled = true;
     document.getElementById('result').style.display = 'none';
+
+    // Show spinner / hide button text
+    const btnTextEl = document.getElementById('btnText');
+    const btnSpinnerEl = document.getElementById('btnSpinner');
+    if (btnTextEl) btnTextEl.style.display = 'none';
+    if (btnSpinnerEl) btnSpinnerEl.style.display = 'inline-block';
 
     try {
         addLog('Sending request to server...', 'info');
@@ -336,9 +342,11 @@ document.getElementById('testCaseForm').addEventListener('submit', async (e) => 
     } finally {
         // Re-enable generate button
         generateBtn.disabled = false;
-        // After your async action completes (e.g. in fetch .then or async/await)
-        btnText.style.display = 'inline';
-        btnSpinner.style.display = 'none';
+        // Reset spinner / show button text
+        const btnTextReset = document.getElementById('btnText');
+        const btnSpinnerReset = document.getElementById('btnSpinner');
+        if (btnTextReset) btnTextReset.style.display = 'inline';
+        if (btnSpinnerReset) btnSpinnerReset.style.display = 'none';
 
         // Close log stream after a brief delay
         if (eventSource) {
@@ -363,16 +371,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add initial log message
     addLog('Application ready. Paste your user story and criteria to begin.', 'info');
-});
-// ============================================================================
-// Loading Indicator
-// ============================================================================
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('testCaseForm');
-    const btnText = document.getElementById('btnText');
-    const btnSpinner = document.getElementById('btnSpinner');
-    form.addEventListener('submit', function() {
-        btnText.style.display = 'none';
-        btnSpinner.style.display = 'inline-block';
-    });
 });
